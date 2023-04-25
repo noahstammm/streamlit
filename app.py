@@ -1,5 +1,4 @@
 import streamlit as st
-
 from request_service import get_sentiment_vader, get_sentiment_gpt, generate_response
 
 role_help = 'Specify the role that Chat GPT should have:' \
