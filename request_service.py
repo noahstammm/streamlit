@@ -6,7 +6,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 url = 'https://api.openai.com/v1/chat/completions'
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': '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',
+    'Authorization': f'Bearer {os.environ["OPENAI_API_KEY"]}',
 }
 
 analyzer = SentimentIntensityAnalyzer()
