@@ -25,7 +25,7 @@ def generate_response(message, role, response_length):
     }
     response = requests.post(url, headers=headers, data=json.dumps(data))
     response_json = response.json()
-    return response_json['choices'][0]['message']['content'].strip()
+    return response_json
 
 
 def get_sentiment_gpt(answer, role, response_length):
