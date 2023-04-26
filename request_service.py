@@ -4,13 +4,11 @@ import os
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import streamlit as st
 
-os.environ["KEY"] == st.secrets["OPENAI_API_KEY"]
-
 
 url = 'https://api.openai.com/v1/chat/completions'
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': f'Bearer {os.environ.get["KEY"] }',
+    'Authorization': f'Bearer {st.secrets["OPENAI_API_KEY"]}',
 }
 
 analyzer = SentimentIntensityAnalyzer()
@@ -19,7 +17,7 @@ analyzer = SentimentIntensityAnalyzer()
 def generate_response(message, role, response_length):
     data = {
         'messages': [{'role': f'{role}', 'content': f'{message}'}],
-        'model': 'gpt-3.5-turbo',
+        'model': 'davinci',
         'temperature': 0.5,
         'max_tokens': response_length,
         'n': 1,
