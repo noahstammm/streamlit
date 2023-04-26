@@ -4,10 +4,12 @@ import os
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import streamlit as st
 
+os.environ["KEY"] == st.secrets["OPENAI_API_KEY"]
+
 url = 'https://api.openai.com/v1/chat/completions'
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': f'Bearer {st.secrets["OPENAI_API_KEY"]}',
+    'Authorization': f'Bearer {os.environ["KEY"]}',
 }
 
 analyzer = SentimentIntensityAnalyzer()
