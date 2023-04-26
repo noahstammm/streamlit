@@ -17,7 +17,7 @@ analyzer = SentimentIntensityAnalyzer()
 def generate_response(message, role, response_length):
     data = {
         'messages': [{'role': f'{role}', 'content': f'{message}'}],
-        'model': 'davinci',
+        'model': 'gpt-3.5-turbo',
         'temperature': 0.5,
         'max_tokens': response_length,
         'n': 1,
@@ -25,7 +25,7 @@ def generate_response(message, role, response_length):
     }
     response = requests.post(url, headers=headers, data=json.dumps(data))
     response_json = response.json()
-    return response_json
+    return response_json['choices'][0]['message']['content'].strip()
 
 
 def get_sentiment_gpt(answer, role, response_length):
