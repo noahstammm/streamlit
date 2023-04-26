@@ -25,7 +25,7 @@ def generate_response(message, role, response_length):
     }
     response = requests.post(url, headers=headers, data=json.dumps(data))
     response_json = response.json()
-    print(response_json)
+    print("My RESPONSE______________________________________________________________"+response + response_json)
     return response_json['choices'][0]['message']['content'].strip()
 
 
