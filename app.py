@@ -1,5 +1,6 @@
 import streamlit as st
 from request_service import get_sentiment_vader, get_sentiment_gpt, generate_response
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 role_help = 'Specify the role that Chat GPT should have:' \
             '\n\nUser: This role is used to indicate that the text is spoken by the primary speaker in the conversation, ' \
