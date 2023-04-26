@@ -6,10 +6,11 @@ import streamlit as st
 
 os.environ["KEY"] == st.secrets["OPENAI_API_KEY"]
 
+
 url = 'https://api.openai.com/v1/chat/completions'
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': f'Bearer {os.environ["KEY"]}',
+    'Authorization': f'Bearer {os.environ.get["KEY"] }',
 }
 
 analyzer = SentimentIntensityAnalyzer()
